@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="sl-theme-dark">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Frostbite</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/dark.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module">
+        await Promise.allSettled([
+            customElements.whenDefined('sl-select'),
+            customElements.whenDefined('sl-input'),
+        ]);
+        document.body.classList.add('ready');
+    </script>
+    <script type="text/javascript" src="./main.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"
+        defer></script>
+</head>
+
+<body>
+    <div style="display:flex; margin:5px; justify-content: space-between;">
+        <sl-button id="savedBtn" variant="success" disable>
+            <sl-icon slot="suffix" name="check"></sl-icon>
+            Saved
+        </sl-button>
+        <sl-button id="saveBtn" variant="warning" style="display:none">
+            <sl-icon slot="suffix" name="floppy"></sl-icon>
+            Save
+        </sl-button>
+
+        <sl-button id="deleteBtn" variant="danger" style="margin-left:auto">Reset</sl-button>
+    </div>
+    <sl-dialog label="Reset" class="dialog-reset">
+        TES SUR TU VEUX TOUS DELETE!!!!?????
+        <sl-button slot="footer" variant="primary">OUI !</sl-button>
+        <sl-button slot="footer" variant="secondary">NON LAISSE FAIRE !</sl-button>
+    </sl-dialog>
+
+    <div class="container">
+
+
+        <div class="General">
+            <sl-card class="card-header main-card">
+                <div slot="header">Informations Générales</div>
+
+                <div class="horizontal">
+                    <sl-input label="Nom:" class="input-medium" data-save-id="name"></sl-input>
+                    <sl-select label="Sexe:" class="input-medium" data-save-id="sex">
+                        <sl-option value="option-1">Homme</sl-option>
+                        <sl-option value="option-2">Femme</sl-option>
+                        <sl-option value="option-3">Autre</sl-option>
+                    </sl-select>
+                    <sl-input label="Ethnicité:" class="input-medium" data-save-id="etnicity"></sl-input>
+                    <sl-input label="Âge:" type="number" class="input-small" data-save-id="age"></sl-input>
+                    <sl-input label="Exp:" type="number" class="input-small" data-save-id="exp"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="HealthState">
+            <sl-card class="card-header main-card">
+                <div slot="header">État de Santé</div>
+                <div class="horizontal">
+                    Blessures:
+                    <sl-checkbox size="large" data-save-id="health1"></sl-checkbox>
+                    <sl-checkbox size="large" data-save-id="health2"></sl-checkbox>
+                    <sl-checkbox size="large" data-save-id="health3"></sl-checkbox>
+                    <sl-checkbox size="large" checked data-save-id="health4"></sl-checkbox>
+                    <sl-input type="number" label="Radioactivité:" class="input-small"
+                        data-save-id="radioactive"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="frostbite">
+            <sl-card class="card-header main-card">
+                <div slot="header">Frostbite</div>
+                <div class="horizontal">
+                    <sl-input type="number" label="Stage:" class="input-small" data-save-id="stage"></sl-input>
+                    <sl-input label="Bonus:" data-save-id="bonus"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="AddInfo">
+            <sl-card class="card-header main-card">
+                <div slot="header">Additional Info</div>
+                <div class="horizontal">
+                    <sl-input type="number" label="Crédits:" class="input-small" data-save-id="credits"></sl-input>
+                    <sl-input label="Passeport(s):" data-save-id="passport"></sl-input>
+                    <sl-input label="Langue(s):" data-save-id="langages"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="Stats">
+            <sl-card class="card-header main-card">
+                <div slot="header">Statistiques & Compétences</div>
+                <sl-card class="card-header">
+                    <div slot="header">Physiques (PHY)</div>
+                    <div class="horizontal">
+                        <sl-rating class="stat" max="3" data-save-id="statPhys"></sl-rating>
+                    </div>
+                    <sl-divider></sl-divider>
+                    <table>
+                        <tr>
+                            <td>Athlétisme: </td>
+                            <td>
+                                <sl-rating class="comp" max="4" data-save-id="compAth"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Mêlée: </td>
+                            <td>
+                                <sl-rating class="comp" max="4" data-save-id="compMelee"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Survie: </td>
+                            <td>
+                                <sl-rating class="comp" max="4" data-save-id="compSurvival"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                    </table>
+
+                </sl-card>
+
+                <sl-card class="card-header">
+                    <div slot="header">Agilité (AGI)</div>
+                    <div class="horizontal">
+                        <sl-rating class="stat" max="3" data-save-id="statagi"></sl-rating>
+                    </div>
+
+                    <sl-divider></sl-divider>
+                    <table>
+                        <tr>
+                            <td>Discrétion: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compDisc"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Pilotage: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compPilot"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Tireur: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compTir"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                    </table>
+
+                </sl-card>
+
+                <sl-card class="card-header">
+                    <div slot="header">Intellect (INT)</div>
+                    <div class="horizontal">
+                        <sl-rating class="stat" max="3" data-save-id="statint"></sl-rating>
+                    </div>
+
+                    <sl-divider></sl-divider>
+                    <table>
+                        <tr>
+                            <td>Électronique: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compElect"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Méchanique: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compMec"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Perception: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compperc"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                    </table>
+
+                </sl-card>
+
+                <sl-card class="card-header">
+                    <div slot="header">Apparance (APP)</div>
+                    <div class="horizontal">
+                        <sl-rating class="stat" max="3" data-save-id="statapp"></sl-rating>
+                    </div>
+
+                    <sl-divider></sl-divider>
+                    <table>
+                        <tr>
+                            <td>Charme: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compCharm"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Intimidation: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compIntimidation"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Négociation: </td>
+                            <td><sl-rating class="comp" max="4" data-save-id="compNego"></sl-rating>
+                            </td>
+                            <td class="diceTotal">0</td>
+                        </tr>
+                    </table>
+
+                </sl-card>
+            </sl-card>
+
+
+        </div>
+
+        <div class="Traits">
+            <sl-card class="card-header main-card">
+                <div slot="header">Traits</div>
+                <sl-select multiple data-save-id="traits">
+                    <sl-option value="option-1">Médecin de combat</sl-option>
+                    <sl-option value="option-2">Pugiliste</sl-option>
+                    <sl-option value="option-3">Tireur d'élite</sl-option>
+                    <sl-option value="option-4">Affinités Électroniques</sl-option>
+                    <sl-option value="option-5">Affinités Mécaniques</sl-option>
+                    <sl-option value="option-6">Réactif</sl-option>
+                    <sl-option value="option-7">Dur à cuire</sl-option>
+                </sl-select>
+            </sl-card>
+        </div>
+        <div class="Armor">
+            <sl-card class="card-header main-card">
+                <div slot="header">Armure</div>
+                <sl-select label="Type" data-save-id="armorType">
+                    <sl-option value="option-1">Aucune</sl-option>
+                    <sl-option value="option-2">Légère (2)</sl-option>
+                    <sl-option value="option-3">Medium (3)</sl-option>
+                    <sl-option value="option-4">Lourde (4)</sl-option>
+                    <sl-option value="option-5">Très Lourde (5)</sl-option>
+                </sl-select>
+                <sl-divider></sl-divider>
+                <sl-rating label="Rating" max="5" data-save-id="armorRating"></sl-rating>
+            </sl-card>
+        </div>
+        <div class="Melee1">
+            <sl-card class="card-header main-card">
+                <div slot="header">Arme de mélée 1</div>
+                <div class="horizontal">
+                    <sl-input label="Modèle:" class="input-medium" data-save-id="melee1model"></sl-input>
+                    <sl-input type="number" label="DMG:" class="input-small" data-save-id="melee1dmg"></sl-input>
+                    <sl-input label="Type:" class="input-medium" data-save-id="melee1type"></sl-input>
+                </div>
+
+            </sl-card>
+        </div>
+        <div class="Melee2">
+            <sl-card class="card-header main-card">
+                <div slot="header">Arme de mélée 2</div>
+                <div class="horizontal">
+                    <sl-input label="Modèle:" class="input-medium" data-save-id="melee2model"></sl-input>
+                    <sl-input type="number" label="DMG:" class="input-small" data-save-id="melee2dmg"></sl-input>
+                    <sl-input label="Type:" class="input-medium" data-save-id="melee2type"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="Balistic1">
+            <sl-card class="card-header main-card">
+                <div slot="header">Arme Balistique 1</div>
+                <div class="horizontal">
+                    <sl-input label="Modèle:" class="input-medium" data-save-id="ballistic1model"></sl-input>
+                    <sl-input type="number" label="Portée:" class="input-small"
+                        data-save-id="ballistic1range"></sl-input>
+                    <sl-input type="number" label="DMG:" class="input-small" data-save-id="ballistic1dmg"></sl-input>
+                    <div class="horizontal">
+                        <label>Chargeur: </label>
+                        <sl-input type="number" data-save-id="ballistic1charge"></sl-input>
+                        <span> / </span>
+                        <sl-input type="number" data-save-id="ballistic1capacity"></sl-input>
+                    </div>
+                    <div class="horizontal">
+                        <label>Chargeur vides: </label>
+                        <sl-input type="number" data-save-id="ballistic1emptycharge"></sl-input>
+                        <span> / </span>
+                        <sl-input type="number" data-save-id="ballistic1emptycapacity"></sl-input>
+                    </div>
+                    <div class="horizontal">
+                        <sl-checkbox label="Anti-Armure" data-save-id="ballistic1antiarmor">Anti-Armure</sl-checkbox>
+                        <sl-checkbox label="Anti-Blindage"
+                            data-save-id="ballistic1antiblindage">Anti-Blindage</sl-checkbox>
+                    </div>
+                    <sl-input label="Type de munitions:" class="input-medium"
+                        data-save-id="ballistic1muntype"></sl-input>
+                    <sl-input label="Spécial:" class="input-large" data-save-id="ballistic1special"></sl-input>
+
+                </div>
+            </sl-card>
+        </div>
+        <div class="Balistic2">
+            <sl-card class="card-header main-card">
+                <div slot="header">Arme Balistique 2</div>
+                <div class="horizontal">
+                    <sl-input label="Modèle:" class="input-medium" data-save-id="ballistic2model"></sl-input>
+                    <sl-input type="number" label="Portée:" class="input-small"
+                        data-save-id="ballistic2range"></sl-input>
+                    <sl-input type="number" label="DMG:" class="input-small" data-save-id="ballistic2dmg"></sl-input>
+                    <div class="horizontal">
+                        <label>Chargeur: </label>
+                        <sl-input type="number" data-save-id="ballistic2charge"></sl-input>
+                        <span> / </span>
+                        <sl-input type="number" data-save-id="ballistic2capacity"></sl-input>
+                    </div>
+                    <div class="horizontal">
+                        <label>Chargeur vides: </label>
+                        <sl-input type="number" data-save-id="ballistic2emptycharge"></sl-input>
+                        <span> / </span>
+                        <sl-input type="number" data-save-id="ballistic2emptycapacity"></sl-input>
+                    </div>
+                    <div class="horizontal">
+                        <sl-checkbox label="Anti-Armure" data-save-id="ballistic2antiarmor">Anti-Armure</sl-checkbox>
+                        <sl-checkbox label="Anti-Blindage"
+                            data-save-id="ballistic2antiblindage">Anti-Blindage</sl-checkbox>
+                    </div>
+
+                    <sl-input label="Type de munitions:" class="input-medium"
+                        data-save-id="ballistic2muntype"></sl-input>
+                    <sl-input label="Spécial:" class="input-large" data-save-id="ballistic2special"></sl-input>
+                </div>
+            </sl-card>
+        </div>
+        <div class="Inventory">
+            <sl-card class="card-header main-card">
+                <div slot="header">Inventaire</div>
+                <div>
+                    Portee de main<table id="inventoryHand">
+                        <tr>
+                            <td><sl-input data-save-id="slot1"></sl-input></td>
+                            <td><sl-input data-save-id="slot2"></sl-input></td>
+                            <td><sl-input data-save-id="slot3"></sl-input></td>
+                            <td><sl-input data-save-id="slot4"></sl-input></td>
+                            <td><sl-input data-save-id="slot5"></sl-input></td>
+                        </tr>
+                        <tr>
+                            <td><sl-input data-save-id="slot6"></sl-input></td>
+                            <td><sl-input data-save-id="slot7"></sl-input></td>
+                            <td><sl-input data-save-id="slot8"></sl-input></td>
+                            <td><sl-input data-save-id="slot9"></sl-input></td>
+                            <td><sl-input data-save-id="slot10"></sl-input></td>
+                        </tr>
+                    </table>
+                    Sac a dos<table id="inventoryBack">
+                        <tr>
+                            <td><sl-input data-save-id="slot11"></sl-input></td>
+                            <td><sl-input data-save-id="slot12"></sl-input></td>
+                            <td><sl-input data-save-id="slot13"></sl-input></td>
+                            <td><sl-input data-save-id="slot14"></sl-input></td>
+                            <td><sl-input data-save-id="slot15"></sl-input></td>
+                        </tr>
+                        <tr>
+                            <td><sl-input data-save-id="slot16"></sl-input></td>
+                            <td><sl-input data-save-id="slot17"></sl-input></td>
+                            <td><sl-input data-save-id="slot18"></sl-input></td>
+                            <td><sl-input data-save-id="slot19"></sl-input></td>
+                            <td><sl-input data-save-id="slot20"></sl-input></td>
+                        </tr>
+                    </table>
+                </div>
+            </sl-card>
+        </div>
+    </div>
+</body>
+
+</html>

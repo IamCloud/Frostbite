@@ -1,0 +1,154 @@
+:root {
+    --sl-input-height-small: 1rem; /* 30px */
+    --sl-input-height-medium: 1.875rem; /* 40px */
+    --sl-input-height-large: 2.5rem; /* 50px */
+
+    --input-width-small: 6rem;
+    --input-width-medium: 12rem;
+    --input-width-large: 18rem;  
+}
+/*Shoelace overrides*/
+sl-card::part(header) {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.input-small {
+    max-width: var(--input-width-small);
+}
+
+.input-medium {
+    max-width: var(--input-width-medium);
+}
+
+.input-large {
+    max-width: var(--input-width-large);
+}
+
+.main-card {
+    width: 100%;
+    height: 100%;
+    /* Makes card take 100% height */
+    display: flex;
+    flex-direction: column;
+    /* Ensure flexbox is used */
+}
+
+.main-card::part(base) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Allows children to stretch vertically */
+}
+
+sl-card::part(body) {
+    text-align: center;
+}
+
+.horizontal {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Inventory table {
+    width: 100%;
+}
+
+
+body {
+    opacity: 0;
+  }
+
+  body.ready {
+    opacity: 1;
+    transition: .25s opacity;
+  }
+
+/*Grid layout*/
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "General General HealthState HealthState"
+        "Armor Traits frostbite AddInfo"
+        "Stats Stats Stats Stats"
+        "Balistic1 Balistic1 Balistic2 Balistic2"
+        "Melee1 Melee1 Melee2 Melee2"
+        "Inventory Inventory Inventory Inventory"
+}
+
+@media (max-width: 1050px) {
+
+    /* Adjust breakpoint as needed */
+    .container {
+        grid-template-columns: 1fr;
+        /* Stack everything in a single column */
+        grid-template-areas:
+            "General"
+            "HealthState"
+            "frostbite"
+            "AddInfo"
+            "Stats"
+            "Armor"
+            "Traits"
+            "Melee1"
+            "Melee2"
+            "Ballistic1"
+            "Balistic2"
+            "Inventory";
+    }
+}
+
+.Traits {
+    grid-area: Traits;
+}
+.Stats {
+    grid-area: Stats;
+}
+
+.General {
+    grid-area: General;
+}
+
+.AddInfo {
+    grid-area: AddInfo;
+}
+
+.Inventory {
+    grid-area: Inventory;
+}
+
+.Armor {
+    grid-area: Armor;
+}
+
+.Melee1 {
+    grid-area: Melee1;
+}
+
+.Melee2 {
+    grid-area: Melee2;
+}
+
+.Balistic1 {
+    grid-area: Balistic1;
+}
+
+.Balistic2 {
+    grid-area: Balistic2;
+}
+
+.frostbite {
+    grid-area: frostbite;
+}
+
+.HealthState {
+    grid-area: HealthState;
+}
