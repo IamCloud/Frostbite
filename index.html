@@ -62,13 +62,14 @@
             <sl-card class="card-header main-card">
                 <div slot="header">État de Santé</div>
                 <div class="horizontal">
-                    Blessures:
-                    <sl-checkbox size="large" data-save-id="health1"></sl-checkbox>
-                    <sl-checkbox size="large" data-save-id="health2"></sl-checkbox>
-                    <sl-checkbox size="large" data-save-id="health3"></sl-checkbox>
-                    <sl-checkbox size="large" checked data-save-id="health4"></sl-checkbox>
-                    <sl-input type="number" label="Radioactivité:" class="input-small"
-                        data-save-id="radioactive"></sl-input>
+                    <div>
+                        Blessures:
+                        <sl-checkbox size="large" data-save-id="health1"></sl-checkbox>
+                        <sl-checkbox size="large" data-save-id="health2"></sl-checkbox>
+                        <sl-checkbox size="large" data-save-id="health3"></sl-checkbox>
+                        <sl-checkbox size="large" checked data-save-id="health4"></sl-checkbox>
+                    </div>
+                    <sl-input type="number" label="Radioactivité:" class="input-small" data-save-id="radioactive"></sl-input>
                 </div>
             </sl-card>
         </div>
@@ -350,7 +351,7 @@
                         <sl-input data-save-id="slot9" class="invSlot"></sl-input>
                         <sl-input data-save-id="slot10" class="invSlot"></sl-input>
                     </div>
-                
+
                     <p>Sac à dos</p>
                     <div id="inventoryBack" class="inventory-grid">
                         <sl-input data-save-id="slot11" class="invSlot"></sl-input>

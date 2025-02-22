@@ -87,7 +87,7 @@ body {
     gap: 1rem;
     grid-auto-flow: row;
     grid-template-areas:
-        "General General HealthState HealthState"
+        "General General General HealthState"
         "Armor Traits frostbite AddInfo"
         "Stats Stats Stats Stats"
         "Balistic1 Balistic1 Balistic2 Balistic2"
@@ -104,17 +104,16 @@ body {
 
     /* Adjust breakpoint as needed */
     .container {
-        grid-template-columns: 2fr;
+        grid-template-columns: 4fr;
         /* Stack everything in a single column */
         grid-template-areas:
-            "General HealthState"
-            "Armor Traits"            
-            "frostbite AddInfo"
-            "Stats Stats"
-            "Balistic1 Balistic1"
-            "Balistic2 Balistic2"
-            "Melee1 Melee2"
-            "Inventory Inventory";
+            "General General General HealthState"
+            "Armor Traits frostbite AddInfo"            
+            "Stats Stats Stats Stats "
+            "Balistic1 Balistic1 Balistic1 Balistic1"
+            "Balistic2 Balistic2 Balistic2 Balistic2"
+            "Melee1 Melee1 Melee2 Melee2"
+            "Inventory Inventory Inventory Inventory";
     }
 }
 
