@@ -279,15 +279,15 @@
                     <sl-input type="number" label="DMG:" class="input-small" data-save-id="ballistic1dmg"></sl-input>
                     <div class="horizontal">
                         <label>Chargeur: </label>
-                        <sl-input type="number" data-save-id="ballistic1charge"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic1charge" class="input-small"></sl-input>
                         <span> / </span>
-                        <sl-input type="number" data-save-id="ballistic1capacity"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic1capacity" class="input-small"></sl-input>
                     </div>
                     <div class="horizontal">
                         <label>Chargeur vides: </label>
-                        <sl-input type="number" data-save-id="ballistic1emptycharge"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic1emptycharge" class="input-small"></sl-input>
                         <span> / </span>
-                        <sl-input type="number" data-save-id="ballistic1emptycapacity"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic1emptycapacity" class="input-small"></sl-input>
                     </div>
                     <div class="horizontal">
                         <sl-checkbox label="Anti-Armure" data-save-id="ballistic1antiarmor">Anti-Armure</sl-checkbox>
@@ -311,15 +311,15 @@
                     <sl-input type="number" label="DMG:" class="input-small" data-save-id="ballistic2dmg"></sl-input>
                     <div class="horizontal">
                         <label>Chargeur: </label>
-                        <sl-input type="number" data-save-id="ballistic2charge"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic2charge" class="input-small"></sl-input>
                         <span> / </span>
-                        <sl-input type="number" data-save-id="ballistic2capacity"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic2capacity" class="input-small"></sl-input>
                     </div>
                     <div class="horizontal">
                         <label>Chargeur vides: </label>
-                        <sl-input type="number" data-save-id="ballistic2emptycharge"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic2emptycharge" class="input-small"></sl-input>
                         <span> / </span>
-                        <sl-input type="number" data-save-id="ballistic2emptycapacity"></sl-input>
+                        <sl-input type="number" data-save-id="ballistic2emptycapacity" class="input-small"></sl-input>
                     </div>
                     <div class="horizontal">
                         <sl-checkbox label="Anti-Armure" data-save-id="ballistic2antiarmor">Anti-Armure</sl-checkbox>
@@ -337,38 +337,33 @@
             <sl-card class="card-header main-card">
                 <div slot="header">Inventaire</div>
                 <div>
-                    Portee de main<table id="inventoryHand">
-                        <tr>
-                            <td><sl-input data-save-id="slot1"></sl-input></td>
-                            <td><sl-input data-save-id="slot2"></sl-input></td>
-                            <td><sl-input data-save-id="slot3"></sl-input></td>
-                            <td><sl-input data-save-id="slot4"></sl-input></td>
-                            <td><sl-input data-save-id="slot5"></sl-input></td>
-                        </tr>
-                        <tr>
-                            <td><sl-input data-save-id="slot6"></sl-input></td>
-                            <td><sl-input data-save-id="slot7"></sl-input></td>
-                            <td><sl-input data-save-id="slot8"></sl-input></td>
-                            <td><sl-input data-save-id="slot9"></sl-input></td>
-                            <td><sl-input data-save-id="slot10"></sl-input></td>
-                        </tr>
-                    </table>
-                    Sac a dos<table id="inventoryBack">
-                        <tr>
-                            <td><sl-input data-save-id="slot11"></sl-input></td>
-                            <td><sl-input data-save-id="slot12"></sl-input></td>
-                            <td><sl-input data-save-id="slot13"></sl-input></td>
-                            <td><sl-input data-save-id="slot14"></sl-input></td>
-                            <td><sl-input data-save-id="slot15"></sl-input></td>
-                        </tr>
-                        <tr>
-                            <td><sl-input data-save-id="slot16"></sl-input></td>
-                            <td><sl-input data-save-id="slot17"></sl-input></td>
-                            <td><sl-input data-save-id="slot18"></sl-input></td>
-                            <td><sl-input data-save-id="slot19"></sl-input></td>
-                            <td><sl-input data-save-id="slot20"></sl-input></td>
-                        </tr>
-                    </table>
+                    <p>Portée de main</p>
+                    <div id="inventoryHand" class="inventory-grid">
+                        <sl-input data-save-id="slot1" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot2" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot3" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot4" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot5" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot6" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot7" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot8" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot9" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot10" class="invSlot"></sl-input>
+                    </div>
+                
+                    <p>Sac à dos</p>
+                    <div id="inventoryBack" class="inventory-grid">
+                        <sl-input data-save-id="slot11" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot12" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot13" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot14" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot15" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot16" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot17" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot18" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot19" class="invSlot"></sl-input>
+                        <sl-input data-save-id="slot20" class="invSlot"></sl-input>
+                    </div>
                 </div>
             </sl-card>
         </div>

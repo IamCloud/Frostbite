@@ -14,6 +14,17 @@ sl-card::part(header) {
     text-align: center;
 }
 
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px; /* Spacing between slots */
+    width: 100%; /* Ensure it adapts to the container */
+}
+
+.invSlot {
+    width: 100%; /* Make inputs take full width of their grid cell */
+    min-width:0;
+}
 .input-small {
     max-width: var(--input-width-small);
 }
@@ -85,24 +96,25 @@ body {
 }
 
 @media (max-width: 1050px) {
+    :root {
+        --input-width-small: 5rem;
+        --input-width-medium: 10rem;
+        --input-width-large: 15rem; 
+    }
 
     /* Adjust breakpoint as needed */
     .container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
         /* Stack everything in a single column */
         grid-template-areas:
-            "General"
-            "HealthState"
-            "Armor"
-            "Traits"
-            "frostbite"
-            "AddInfo"
-            "Stats"
-            "Balistic1"
-            "Balistic2"
-            "Melee1"
-            "Melee2"
-            "Inventory";
+            "General HealthState"
+            "Armor Traits"            
+            "frostbite AddInfo"
+            "Stats Stats"
+            "Balistic1 Balistic1"
+            "Balistic2 Balistic2"
+            "Melee1 Melee2"
+            "Inventory Inventory";
     }
 }
 
