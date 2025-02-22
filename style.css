@@ -93,15 +93,15 @@ body {
         grid-template-areas:
             "General"
             "HealthState"
+            "Armor"
+            "Traits"
             "frostbite"
             "AddInfo"
             "Stats"
-            "Armor"
-            "Traits"
+            "Balistic1"
+            "Balistic2"
             "Melee1"
             "Melee2"
-            "Ballistic1"
-            "Balistic2"
             "Inventory";
     }
 }
