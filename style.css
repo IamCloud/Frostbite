@@ -118,6 +118,7 @@ body {
 }
 
 .Traits {
+    min-width: 150px;
     grid-area: Traits;
 }
 .Stats {
@@ -137,6 +138,7 @@ body {
 }
 
 .Armor {
+    min-width: 190px;
     grid-area: Armor;
 }
 

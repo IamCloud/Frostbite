@@ -1,0 +1,3 @@
+- Export saves
+- Multiple characters
+- Add tooltips with details
